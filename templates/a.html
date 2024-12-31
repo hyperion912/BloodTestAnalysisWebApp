@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Test Analysis</title>
+</head>
+<body>
+    <h1>Blood Test Analysis</h1>
+    <form action="/analyze" method="POST">
+        <label for="hemoglobin">Hemoglobin (g/dL):</label>
+        <input type="text" id="hemoglobin" name="hemoglobin" required><br><br>
+
+        <label for="hematocrit">Hematocrit (%):</label>
+        <input type="text" id="hematocrit" name="hematocrit" required><br><br>
+
+        <label for="rbc_count">RBC Count (million/μL):</label>
+        <input type="text" id="rbc_count" name="rbc_count" required><br><br>
+
+        <label for="wbc_count">WBC Count (cells/μL):</label>
+        <input type="text" id="wbc_count" name="wbc_count" required><br><br>
+
+        <label for="platelet_count">Platelet Count (cells/μL):</label>
+        <input type="text" id="platelet_count" name="platelet_count" required><br><br>
+
+        <label for="creatinine">Creatinine (mg/dL):</label>
+        <input type="text" id="creatinine" name="creatinine" required><br><br>
+
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if response %}
+    <div id="report-container">
+        {{ response|safe }}
+    </div>
+    {% endif %}
+</body>
+</html> 
